@@ -40,6 +40,11 @@
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 	<div id="particles-js"></div>
+	
+	<!-- Stylish Background Blobs -->
+	<div class="blob blob-1"></div>
+	<div class="blob blob-2"></div>
+	<div class="blob blob-3"></div>
 
 
 
@@ -608,6 +613,33 @@
 			initTypedOnActiveSlide();
 		});
 
+		// Interactive Mouse Effects for Glass Cards
+		document.addEventListener('mousemove', e => {
+			document.querySelectorAll('.glass-card, .services-1, .contact-info .box').forEach(card => {
+				const rect = card.getBoundingClientRect();
+				const x = e.clientX - rect.left;
+				const y = e.clientY - rect.top;
+				card.style.setProperty('--mouse-x', `${x}px`);
+				card.style.setProperty('--mouse-y', `${y}px`);
+			});
+		});
+
+		// Magnetic Buttons Effect
+		const magneticButtons = document.querySelectorAll('.btn-primary, .back-to-top-btn');
+		magneticButtons.forEach(btn => {
+			btn.addEventListener('mousemove', function(e) {
+				const rect = this.getBoundingClientRect();
+				const x = e.clientX - rect.left - rect.width / 2;
+				const y = e.clientY - rect.top - rect.height / 2;
+				
+				this.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.05)`;
+			});
+			
+			btn.addEventListener('mouseleave', function(e) {
+				this.style.transform = '';
+			});
+		});
+
 		if (window.innerWidth >= 992) {
 			const cursor = document.querySelector('.cursor');
 			const cursorinner = document.querySelector('.cursor2');
@@ -698,13 +730,13 @@
 		// Particles.js Config
 		particlesJS("particles-js", {
 			"particles": {
-				"number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+				"number": { "value": 30, "density": { "enable": true, "value_area": 800 } },
 				"color": { "value": "#F96D00" },
 				"shape": { "type": "circle" },
-				"opacity": { "value": 0.5, "random": false },
+				"opacity": { "value": 0.3, "random": false },
 				"size": { "value": 3, "random": true },
-				"line_linked": { "enable": true, "distance": 150, "color": "#F96D00", "opacity": 0.4, "width": 1 },
-				"move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+				"line_linked": { "enable": true, "distance": 150, "color": "#F96D00", "opacity": 0.2, "width": 1 },
+				"move": { "enable": true, "speed": 1, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
 			},
 			"interactivity": {
 				"detect_on": "canvas",
