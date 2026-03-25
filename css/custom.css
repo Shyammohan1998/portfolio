@@ -1,0 +1,295 @@
+/* Custom Variables */
+:root {
+  --primary-glow: rgba(249, 109, 0, 0.4);
+  --primary-color: #F96D00;
+  --transition-speed: 0.3s;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Gradient Text for Headings */
+.hero .text h1 span {
+  background: linear-gradient(45deg, #F96D00, #ffb347);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Navbar Enhancements */
+.ftco-navbar-light.scrolled {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.8) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  transition: all var(--transition-speed) ease;
+}
+
+/* Buttons Hover Effects */
+.btn.btn-primary {
+  transition: all var(--transition-speed) ease;
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(249, 109, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.btn.btn-primary:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px var(--primary-glow);
+}
+
+.btn.btn-primary:hover::before {
+  width: 100%;
+}
+
+/* Image Hover & Floating Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.img-about .img {
+  animation: float 6s ease-in-out infinite;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  transition: all 0.5s ease;
+}
+
+.img-about .img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 30px 60px rgba(249, 109, 0, 0.3);
+}
+
+/* Services Cards Interactive */
+.services-1 {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 15px;
+  background: transparent;
+  padding: 30px !important;
+  border: 1px solid transparent;
+}
+
+.services-1:hover {
+  transform: translateY(-15px) scale(1.05);
+  background: transparent;
+  border-color: transparent;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 0 20px var(--primary-glow);
+}
+
+.services-1 .icon i {
+  transition: all 0.4s ease;
+  display: inline-block;
+}
+
+.services-1:hover .icon i {
+  transform: rotateY(360deg) scale(1.2);
+  color: var(--primary-color);
+  text-shadow: 0 0 15px var(--primary-glow);
+}
+
+/* Progress Bars Animation */
+.progress-wrap {
+  background: transparent;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.progress-wrap:hover {
+  transform: translateX(10px) scale(1.02);
+}
+
+.progress-wrap h3 {
+  transition: all 0.3s ease;
+}
+
+.progress-wrap:hover h3 {
+  color: var(--primary-color);
+  text-shadow: 0 0 8px var(--primary-glow);
+}
+
+.progress-wrap .progress {
+  transition: box-shadow 0.3s ease;
+  overflow: visible !important;
+}
+
+.progress-wrap:hover .progress {
+  box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.progress-bar {
+  position: relative;
+  overflow: visible !important;
+}
+
+.progress-bar span {
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  top: -45px;
+  position: absolute;
+  right: 0;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  transform: scale(0.8);
+}
+
+/* Tooltip Little Triangle */
+.progress-bar span::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px 5px 0;
+  border-style: solid;
+  border-color: var(--primary-color) transparent transparent transparent;
+}
+
+.progress-wrap:hover .progress-bar span {
+  opacity: 1;
+  top: -38px;
+  transform: scale(1);
+}
+
+/* Contact Info Hover */
+.contact-info .box {
+  transition: all 0.4s ease;
+  background: transparent;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+.contact-info .box:hover {
+  transform: translateY(-10px);
+  background: transparent;
+  border-color: transparent;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.contact-info .icon span {
+  transition: all 0.4s ease;
+}
+
+.contact-info .box:hover .icon span {
+  transform: scale(1.2);
+  text-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Social Media Icons */
+.ftco-footer-social li a {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.ftco-footer-social li a:hover {
+  transform: translateY(-5px) scale(1.1);
+  background: var(--primary-color);
+  color: #fff;
+  box-shadow: 0 5px 15px var(--primary-glow);
+}
+
+/* Input Fields Focus Effect */
+.form-control {
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.form-control:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 0 10px var(--primary-glow);
+  border-color: rgba(249, 109, 0, 0.5);
+}
+
+/* Resume Item Hover */
+.resume-wrap {
+  transition: all 0.3s ease;
+  border-left: 2px solid transparent !important;
+}
+
+.resume-wrap:hover {
+  transform: translateX(10px);
+  border-left-color: var(--primary-color) !important;
+  background: transparent;
+  padding-left: 20px;
+  box-shadow: none;
+}
+
+/* Fix Typed.js cursor line break issue */
+.hero .text h1 span.typed-cursor,
+.hero .text h2 span.typed-cursor,
+.typed-cursor {
+  display: inline !important;
+  font-weight: 200 !important;
+  color: inherit !important;
+}
+
+/* Custom Cursor */
+.cursor {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border: 1px solid var(--primary-color);
+  transition: all 200ms ease-out;
+  position: fixed;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  transform: translate(calc(-50% + 15px), -50%);
+  z-index: 9999;
+}
+
+.cursor2 {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: var(--primary-color);
+  opacity: .3;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: width .3s, height .3s, opacity .3s;
+  z-index: 9999;
+}
+
+/* Hide default cursor on desktop */
+@media (min-width: 992px) {
+
+  body,
+  a,
+  button,
+  .btn {
+    cursor: none !important;
+  }
+}
