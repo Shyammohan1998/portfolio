@@ -23,9 +23,23 @@
 	<link rel="stylesheet" href="css/icomoon.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/custom.css">
+	<style>
+		/* Particle container must be behind everything */
+		#particles-js {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			background-color: #000;
+			background-image: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000000 100%);
+		}
+	</style>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+	<div id="particles-js"></div>
 
 
 
@@ -153,12 +167,12 @@
 			</div>
 			<div class="row">
 				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
+					<div class="resume-wrap ftco-animate glass-card" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
 						<span class="date">2021 - Present</span>
 						<h2>Software Engineer</h2>
 						<span class="position">TechTaliya Informatics Pvt. Ltd</span>
 					</div>
-					<div class="resume-wrap ftco-animate">
+					<div class="resume-wrap ftco-animate glass-card" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
 						<span class="date">2016 - 2019</span>
 						<h2>Bachelor of Science in Computer Science</h2>
 						<span class="position">Mahatma Gandhi University</span>
@@ -167,12 +181,12 @@
 				</div>
 
 				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
+					<div class="resume-wrap ftco-animate glass-card" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
 						<span class="date">2019 - 2021</span>
 						<h2>Master of Science in Computer Science</h2>
 						<span class="position">Mahatma Gandhi University</span>
 					</div>
-					<div class="resume-wrap ftco-animate">
+					<div class="resume-wrap ftco-animate glass-card" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
 						<span class="date">2014 - 2016</span>
 						<h2>Higher Secondary</h2>
 						<span class="position">St Marys HSS Manarcad</span>
@@ -194,7 +208,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-4 text-center d-flex ftco-animate">
-					<a href="#" class="services-1">
+					<a href="#" class="services-1 glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="800">
 						<span class="icon">
 							<i class="flaticon-ideas"></i>
 						</span>
@@ -204,7 +218,7 @@
 					</a>
 				</div>
 				<div class="col-md-4 text-center d-flex ftco-animate">
-					<a href="#" class="services-1">
+					<a href="#" class="services-1 glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="800">
 						<span class="icon">
 							<i class="flaticon-analysis"></i>
 						</span>
@@ -214,7 +228,7 @@
 					</a>
 				</div>
 				<div class="col-md-4 text-center d-flex ftco-animate">
-					<a href="#" class="services-1">
+					<a href="#" class="services-1 glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="800">
 						<span class="icon">
 							<i class="flaticon-flasks"></i>
 						</span>
@@ -403,7 +417,7 @@
 			</div>
 			<div class="row d-flex contact-info mb-5">
 				<div class="col-md-4 col-lg-4 d-flex ftco-animate">
-					<div class="align-self-stretch box p-4 text-center">
+					<div class="align-self-stretch box p-4 text-center glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400">
 						<div class="icon d-flex align-items-center justify-content-center">
 							<span class="icon-paper-plane"></span>
 						</div>
@@ -412,7 +426,7 @@
 					</div>
 				</div>
 				<div class="col-md-4 col-lg-4 d-flex ftco-animate">
-					<div class="align-self-stretch box p-4 text-center">
+					<div class="align-self-stretch box p-4 text-center glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400">
 						<div class="icon d-flex align-items-center justify-content-center">
 							<span class="icon-map-signs"></span>
 						</div>
@@ -421,7 +435,7 @@
 					</div>
 				</div>
 				<div class="col-md-4 col-lg-4 d-flex ftco-animate">
-					<div class="align-self-stretch box p-4 text-center">
+					<div class="align-self-stretch box p-4 text-center glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400">
 						<div class="icon d-flex align-items-center justify-content-center">
 							<span class="icon-phone2"></span>
 						</div>
@@ -433,7 +447,7 @@
 
 			<div class="row no-gutters block-9">
 				<div class="col-md-6 order-md-last d-flex">
-					<form action="https://formsubmit.co/shyammohan141298@gmail.com" method="POST" class="bg-light p-4 p-md-5 contact-form" id="contactForm">
+					<form action="https://formsubmit.co/shyammohan141298@gmail.com" method="POST" class="contact-form glass-card p-4 p-md-5" id="contactForm">
 						<!-- Honeypot -->
 						<input type="text" name="_honey" style="display:none">
 						<!-- Disable Captcha -->
@@ -452,7 +466,7 @@
 							<textarea name="message" id="message" cols="30" rows="7" class="form-control"
 								placeholder="Message" required></textarea>
 						</div>
-						<div class="form-group">
+						<div class="form-group mt-4">
 							<center>
 								<input type="submit" value="Send Message" class="btn btn-primary py-3 px-5" id="submitBtn">
 							</center>
@@ -506,6 +520,11 @@
 				stroke="#F96D00" />
 		</svg></div>
 
+	<!-- Back to Top Button -->
+	<a id="back-to-top" href="#" class="back-to-top-btn">
+		<i class="icon-arrow-up"></i>
+	</a>
+
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery-migrate-3.0.1.min.js"></script>
@@ -520,6 +539,8 @@
 	<script src="js/jquery.animateNumber.min.js"></script>
 	<script src="js/scrollax.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+	<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 
 	<script src="js/main.js"></script>
 
@@ -672,6 +693,38 @@
 					document.getElementById('form-message-success').style.display = 'none';
 				}, 5000);
 			});
+		});
+
+		// Particles.js Config
+		particlesJS("particles-js", {
+			"particles": {
+				"number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+				"color": { "value": "#F96D00" },
+				"shape": { "type": "circle" },
+				"opacity": { "value": 0.5, "random": false },
+				"size": { "value": 3, "random": true },
+				"line_linked": { "enable": true, "distance": 150, "color": "#F96D00", "opacity": 0.4, "width": 1 },
+				"move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+			},
+			"interactivity": {
+				"detect_on": "canvas",
+				"events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+				"modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } }
+			},
+		});
+
+		// Back to Top functionality
+		var btn = $('#back-to-top');
+		$(window).scroll(function() {
+			if ($(window).scrollTop() > 300) {
+				btn.addClass('show');
+			} else {
+				btn.removeClass('show');
+			}
+		});
+		btn.on('click', function(e) {
+			e.preventDefault();
+			$('html, body').animate({scrollTop:0}, '300');
 		});
 	</script>
 </body>
