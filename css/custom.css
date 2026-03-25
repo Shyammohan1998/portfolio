@@ -147,24 +147,7 @@ body {
 .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
   color: #fff !important;
   font-weight: 500;
-  position: relative;
   transition: 0.3s;
-}
-
-.ftco-navbar-light .navbar-nav > .nav-item > .nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: var(--primary-color);
-  transition: 0.3s;
-  transform: translateX(-50%);
-}
-
-.ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover::after {
-  width: 80%;
 }
 
 .navbar-brand {
