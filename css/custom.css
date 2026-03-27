@@ -509,6 +509,11 @@ body {
   }
 }
 
+/* Hide Carousel Dots & Background Blobs */
+.owl-dots, .blob {
+  display: none !important;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
   .heading-section h1.big {
