@@ -7,14 +7,16 @@
 
 	"use strict";
 
-	$(window).stellar({
-    responsive: true,
-    parallaxBackgrounds: true,
-    parallaxElements: true,
-    horizontalScrolling: false,
-    hideDistantElements: false,
-    scrollProperty: 'scroll'
-  });
+	if ($(window).width() >= 992) {
+		$(window).stellar({
+			responsive: true,
+			parallaxBackgrounds: true,
+			parallaxElements: true,
+			horizontalScrolling: false,
+			hideDistantElements: false,
+			scrollProperty: 'scroll'
+		});
+	}
 
 
 	var fullHeight = function() {
@@ -38,7 +40,9 @@
 	loader();
 
 	// Scrollax
-   $.Scrollax();
+	if ($(window).width() >= 992) {
+		$.Scrollax();
+	}
 
 
 
