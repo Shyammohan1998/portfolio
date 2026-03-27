@@ -36,6 +36,16 @@
 			background-color: #000;
 			background-image: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000000 100%);
 		}
+
+		/* Fix for mobile vertical scroll on carousel */
+		.home-slider,
+		.home-slider .owl-stage-outer,
+		.home-slider .owl-stage,
+		.home-slider .owl-item,
+		.home-slider .slider-item,
+		.home-slider .slider-text {
+			touch-action: pan-y !important;
+		}
 	</style>
 </head>
 
