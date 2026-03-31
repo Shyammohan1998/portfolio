@@ -183,6 +183,16 @@
 
 	var counter = function() {
 		
+		// Dynamically calculate years of experience since Sept 1, 2021
+		var startExpDate = new Date('2021-09-01');
+		var currentDate = new Date();
+		var diffTime = Math.abs(currentDate - startExpDate);
+		var experienceYears = (diffTime / (1000 * 60 * 60 * 24 * 365.25)).toFixed(1);
+		
+		if($('#experience-counter').length) {
+			$('#experience-counter').attr('data-number', experienceYears);
+		}
+
 		$('#section-counter, .hero-wrap, .ftco-counter, .ftco-about').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
@@ -190,13 +200,20 @@
 				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
 				$('.number').each(function(){
 					var $this = $(this),
-						num = $this.data('number');
+						num = parseFloat($this.data('number'));
 						console.log(num);
 					$this.animateNumber(
 					  {
 					    number: num,
-					    numberStep: comma_separator_number_step
-					  }, 7000
+					    numberStep: function(now, tween) {
+							var target = $(tween.elem);
+							if (num % 1 !== 0) {
+								target.text(now.toFixed(1));
+							} else {
+								target.text(Math.ceil(now));
+							}
+					    }
+					  }, 3000
 					);
 				});
 				
