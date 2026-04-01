@@ -105,6 +105,11 @@
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 	<div id="particles-js"></div>
 
+	<!-- Custom Top Progress Bar -->
+	<div class="scroll-progress-container">
+		<div id="scrollProgress" class="scroll-progress-bar"></div>
+	</div>
+
 	<!-- Stylish Background Blobs (Hidden) -->
 	<!-- <div class="blob blob-1"></div>
 	<div class="blob blob-2"></div>
@@ -943,6 +948,14 @@
 		btn.on('click', function (e) {
 			e.preventDefault();
 			$('html, body').animate({ scrollTop: 0 }, '300');
+		});
+
+		// Top progress bar scroll logic
+		$(window).scroll(function() {
+			var winScroll = $(window).scrollTop();
+			var height = $(document).height() - $(window).height();
+			var scrolled = (winScroll / height) * 100;
+			$('#scrollProgress').css('width', scrolled + '%');
 		});
 	</script>
 </body>
