@@ -1324,9 +1324,9 @@ a:hover { color: var(--primary); }
   border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
   padding: 60px 40px;
-  text-align: center;
   position: relative;
   overflow: hidden;
+  text-align: center;
 }
 
 .cta-banner::before {
@@ -1337,11 +1337,29 @@ a:hover { color: var(--primary); }
   pointer-events: none;
 }
 
+.cta-content {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  padding: 6px 18px;
+  border-radius: 50px;
+}
+
 .cta-banner h2 {
   font-size: clamp(1.5rem, 3vw, 2.2rem);
   font-weight: 800;
   margin: 0 0 12px;
-  position: relative;
 }
 
 .cta-banner h2 span {
@@ -1352,7 +1370,19 @@ a:hover { color: var(--primary); }
   color: var(--text-secondary);
   margin: 0 0 24px;
   font-size: 1rem;
-  position: relative;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .cta-banner {
+    padding: 40px 24px;
+  }
 }
 
 /* ----- 18. FOOTER ----- */
