@@ -218,7 +218,9 @@ a:hover { color: var(--primary); }
   width: 100%;
   z-index: 9999;
   padding: 20px 0;
-  transition: all var(--transition-base);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: padding 0.4s ease, background 0.4s ease, border-color 0.4s ease;
 }
 
 .navbar-premium.scrolled {
@@ -226,7 +228,7 @@ a:hover { color: var(--primary); }
   background: rgba(5, 5, 8, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom-color: var(--border-subtle);
 }
 
 .navbar-premium .nav-container {
