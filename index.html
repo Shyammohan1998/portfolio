@@ -1,963 +1,1036 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<title>Shyam</title>
-	<link rel="icon" href="images/favicon.png" type="image/png">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>ShyamM</title>
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Shyam Mohan — Premium Full Stack JavaScript Developer Portfolio. Specializing in React, Node.js, and modern web development.">
 
-	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-	<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-	<link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/icomoon.css">
+  <link rel="stylesheet" href="css/flaticon.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
 
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	<link rel="stylesheet" href="css/magnific-popup.css">
+  <!-- Premium Stylesheet -->
+  <link rel="stylesheet" href="css/premium.css">
 
-	<link rel="stylesheet" href="css/aos.css">
+  <style>
+    #bg-particles {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      background: var(--bg-primary);
+      pointer-events: none;
+    }
 
-	<link rel="stylesheet" href="css/ionicons.min.css">
-
-	<link rel="stylesheet" href="css/flaticon.css">
-	<link rel="stylesheet" href="css/icomoon.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/custom.css">
-	<style>
-		/* Particle container must be behind everything */
-		#particles-js {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			z-index: -1;
-			background-color: #000;
-			background-image: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000000 100%);
-		}
-
-		/* Fix for mobile vertical scroll on carousel */
-		.hero,
-		.home-slider,
-		.home-slider .owl-stage-outer,
-		.home-slider .owl-stage,
-		.home-slider .owl-item,
-		.home-slider .slider-item,
-		.home-slider .slider-text {
-			touch-action: pan-y !important;
-		}
-
-		/* General mobile scroll fix */
-		@media (max-width: 991.98px) {
-
-			html,
-			body {
-				overflow-y: auto !important;
-				height: auto !important;
-				touch-action: pan-y !important;
-			}
-
-			.img-about .img {
-				height: 400px !important;
-				margin-bottom: 30px;
-			}
-		}
-
-		/* Skill Card Icon Animation */
-		@keyframes pulse-float {
-			0% {
-				transform: translateY(0) scale(1);
-				filter: drop-shadow(0 0 5px rgba(249, 109, 0, 0.2));
-			}
-
-			50% {
-				transform: translateY(-7px) scale(1.05);
-				filter: drop-shadow(0 0 15px rgba(249, 109, 0, 0.6));
-			}
-
-			100% {
-				transform: translateY(0) scale(1);
-				filter: drop-shadow(0 0 5px rgba(249, 109, 0, 0.2));
-			}
-		}
-
-		.icon-animate {
-			animation: pulse-float 3s ease-in-out infinite;
-			display: block;
-			margin-bottom: 15px;
-		}
-
-		.glass-card:nth-child(2n) .icon-animate {
-			animation-delay: 0.5s;
-		}
-
-		.glass-card:nth-child(3n) .icon-animate {
-			animation-delay: 1s;
-		}
-
-		.glass-card:nth-child(4n) .icon-animate {
-			animation-delay: 1.5s;
-		}
-	</style>
+    @media (max-width: 991.98px) {
+      html, body {
+        overflow-y: auto !important;
+        height: auto !important;
+        touch-action: pan-y !important;
+      }
+    }
+  </style>
 </head>
+<body>
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-	<div id="particles-js"></div>
+  <!-- Ambient Background -->
+  <div class="ambient-bg">
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+  </div>
 
-	<!-- Custom Top Progress Bar -->
-	<div class="scroll-progress-container">
-		<div id="scrollProgress" class="scroll-progress-bar"></div>
-	</div>
+  <canvas id="bg-particles"></canvas>
 
-	<!-- Stylish Background Blobs (Hidden) -->
-	<!-- <div class="blob blob-1"></div>
-	<div class="blob blob-2"></div>
-	<div class="blob blob-3"></div> -->
+  <div class="noise-overlay"></div>
 
+  <!-- Scroll Progress -->
+  <div class="scroll-progress">
+    <div class="scroll-progress-bar" id="scrollProgress"></div>
+  </div>
 
+  <!-- Preloader -->
+  <div class="premium-loader" id="premiumLoader">
+    <div class="loader-content">
+      <div class="loader-logo">Shyam.</div>
+      <div class="loader-bar">
+        <div class="loader-bar-fill"></div>
+      </div>
+    </div>
+  </div>
 
-	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-		<div class="container">
-			<a class="navbar-brand" href="index.html">Shyam</a>
-			<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
-				data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="oi oi-menu"></span> Menu
-			</button>
-
-			<div class="collapse navbar-collapse" id="ftco-nav">
-				<ul class="navbar-nav nav ml-auto">
-					<li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-					<li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-					<li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
-					<li class="nav-item"><a href="#services-section" class="nav-link"><span>Services</span></a></li>
-					<li class="nav-item"><a href="#skills-section" class="nav-link"><span>Skills</span></a></li>
-					<!-- <li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li> -->
-					<li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<section id="home-section" class="hero">
-		<div class="home-slider  owl-carousel">
-			<div class="slider-item ">
-				<div class="overlay"></div>
-				<div class="container">
-					<div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end"
-						data-scrollax-parent="true">
-						<div class="one-third js-fullheight order-md-last img"
-							style="background-image:url(images/bg_1.png);">
-							<div class="overlay"></div>
-						</div>
-						<div class="one-forth d-flex  align-items-center ftco-animate"
-							data-scrollax=" properties: { translateY: '70%' }">
-							<div class="text">
-								<span class="subheading">Hello!</span>
-								<h1 class="mb-4 mt-3">I'm <span>Shyam Mohan</span></h1>
-								<h2 class="mb-4"><span class="typed-anim-1"></span></h2>
-								<!-- <p><a href="#" class="btn btn-primary py-3 px-4">Hire me</a> <a href="#" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p> -->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="slider-item">
-				<div class="overlay"></div>
-				<div class="container">
-					<div class="row d-flex no-gutters slider-text align-items-end justify-content-end"
-						data-scrollax-parent="true">
-						<div class="one-third js-fullheight order-md-last img"
-							style="background-image:url(images/bg_1.png);">
-							<div class="overlay"></div>
-						</div>
-						<div class="one-forth d-flex align-items-center ftco-animate"
-							data-scrollax=" properties: { translateY: '70%' }">
-							<div class="text">
-								<span class="subheading">Hello!</span>
-								<h1 class="mb-4 mt-3">I'm a <span><strong class="typed-anim-2"
-											style="font-weight: inherit;"></strong></span> in Java Script</h1>
-								<!-- <p><a href="#" class="btn btn-primary py-3 px-4">Hire me</a> <a href="#" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p> -->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
-		<div class="container">
-			<div class="row d-flex">
-				<div class="col-md-6 col-lg-5 d-flex order-2 order-md-1">
-					<div class="img-about img d-flex align-items-stretch">
-						<div class="overlay"></div>
-						<div class="img d-flex align-self-stretch align-items-center"
-							style="background-image:url(images/about.png);">
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-7 pl-lg-5 pb-5 order-1 order-md-2">
-					<div class="row justify-content-start pb-3">
-						<div class="col-md-12 heading-section ftco-animate">
-							<h1 class="big">About</h1>
-							<h2 class="mb-4">About Me</h2>
-							<p>I am a Full Stack JavaScript Developer with experience in Node.js and React.js. I hold
-								both graduate and postgraduate degrees in Computer Science from Mahatma Gandhi
-								University. My project work focused mainly on software development, and alongside my
-								technical background, I am also an artist with a strong creative perspective.</p>
-							<ul class="about-info mt-4 px-md-0 px-2">
-								<li class="d-flex"><span>Name:</span> <span>Shyam Mohan</span></li>
-								<li class="d-flex"><span>Date of birth:</span> <span>December 14, 1998</span></li>
-								<li class="d-flex"><span>Address:</span> <span>Kizhakkemadom (H) Amayannoor PO Kottayam,
-										Kerala</span></li>
-								<li class="d-flex"><span>Zip code:</span> <span>686019</span></li>
-								<li class="d-flex"><span>Email:</span> <span>shyammohan141298@gmail.com</span></li>
-								<li class="d-flex"><span>Phone: </span> <span>+91 7909232372</span></li>
-							</ul>
-							<br>
-						</div>
-					</div>
-					<div class="d-flex flex-wrap mt-md-3 align-items-center">
-						<div class="counter-wrap ftco-animate mr-5 mb-3">
-							<div class="text">
-								<p class="mb-0"><span id="experience-counter" class="number" data-number="0"
-										style="font-size: 2.5rem; font-weight: 700; color: var(--primary-color);">0.0</span>
-								</p>
-								<span
-									style="color: rgba(255,255,255,0.8); letter-spacing: 1px; text-transform: uppercase; font-size: 0.8rem; font-weight: 600;">Years
-									of experience</span>
-							</div>
-						</div>
-						<div class="counter-wrap ftco-animate mr-5 mb-3">
-							<div class="text">
-								<p class="mb-0"><span class="number" data-number="15"
-										style="font-size: 2.5rem; font-weight: 700; color: var(--primary-color);">0</span>
-								</p>
-								<span
-									style="color: rgba(255,255,255,0.8); letter-spacing: 1px; text-transform: uppercase; font-size: 0.8rem; font-weight: 600;">Projects
-									completed</span>
-							</div>
-						</div>
-						<div class="counter-wrap ftco-animate mb-3">
-							<div class="text">
-								<p class="mb-0"><a
-										href="https://drive.google.com/file/d/1VUznBEYpXM2XrdfpirFT4poEjQtZ11Vn/view?usp=drive_link"
-										target="_blank" rel="noopener noreferrer" class="btn btn-primary py-3 px-4"
-										style="font-weight: 600;">Download
-										CV</a></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="ftco-section ftco-no-pb" id="resume-section">
-		<div class="container">
-			<div class="row justify-content-center pb-5">
-				<div class="col-md-10 heading-section text-center ftco-animate">
-					<h1 class="big big-2">Resume</h1>
-					<h2 class="mb-4">Resume</h2>
-					<p>Experienced Software Engineer specializing in Node.js and React.js, with strong backend expertise
-						and a proven track record of building scalable, high-performance web applications and delivering
-						end-to-end solutions.</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate glass-card" data-tilt data-tilt-max="5" data-tilt-speed="400"
-						data-tilt-perspective="1000">
-						<span class="date">2021 - Present</span>
-						<h2>Software Engineer</h2>
-						<span class="position">TechTaliya Informatics Pvt. Ltd</span>
-					</div>
-					<div class="resume-wrap ftco-animate glass-card" data-tilt data-tilt-max="5" data-tilt-speed="400"
-						data-tilt-perspective="1000">
-						<span class="date">2016 - 2019</span>
-						<h2>Bachelor of Science in Computer Science</h2>
-						<span class="position">Mahatma Gandhi University</span>
-					</div>
-
-				</div>
-
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate glass-card" data-tilt data-tilt-max="5" data-tilt-speed="400"
-						data-tilt-perspective="1000">
-						<span class="date">2019 - 2021</span>
-						<h2>Master of Science in Computer Science</h2>
-						<span class="position">Mahatma Gandhi University</span>
-					</div>
-					<div class="resume-wrap ftco-animate glass-card" data-tilt data-tilt-max="5" data-tilt-speed="400"
-						data-tilt-perspective="1000">
-						<span class="date">2014 - 2016</span>
-						<h2>Higher Secondary</h2>
-						<span class="position">St Marys HSS Manarcad</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="ftco-section" id="services-section">
-		<div class="container">
-			<div class="row justify-content-center py-5 mt-5">
-				<div class="col-md-12 heading-section text-center ftco-animate">
-					<h1 class="big big-2">Services</h1>
-					<h2 class="mb-4">Services</h2>
-					<p>I am a Software Developer and freelance professional from India. I can help you with the
-						following services:</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 text-center d-flex ftco-animate">
-					<a href="#" class="services-1 glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400"
-						data-tilt-perspective="800">
-						<span class="icon">
-							<i class="flaticon-ideas"></i>
-						</span>
-						<div class="desc">
-							<h3 class="mb-5">Web Developer</h3>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4 text-center d-flex ftco-animate">
-					<a href="#" class="services-1 glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400"
-						data-tilt-perspective="800">
-						<span class="icon">
-							<i class="flaticon-analysis"></i>
-						</span>
-						<div class="desc">
-							<h3 class="mb-5">Web Design</h3>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4 text-center d-flex ftco-animate">
-					<a href="#" class="services-1 glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400"
-						data-tilt-perspective="800">
-						<span class="icon">
-							<i class="flaticon-flasks"></i>
-						</span>
-						<div class="desc">
-							<h3 class="mb-5">Logo Design</h3>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
+  <!-- Custom Cursor -->
+  <div class="custom-cursor-inner" id="cursorInner"></div>
+  <canvas class="cursor-comet-canvas" id="cursorCometCanvas"></canvas>
 
 
-	<section class="ftco-section" id="skills-section">
-		<div class="container">
-			<div class="row justify-content-center pb-5">
-				<div class="col-md-12 heading-section text-center ftco-animate">
-					<h1 class="big big-2">Tech Stack</h1>
-					<h2 class="mb-4">My Tech Stack</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<div class="d-flex flex-wrap justify-content-center">
-						<!-- Frontend & Design -->
-						<div class="glass-card px-4 py-4 m-3 d-flex flex-column align-items-center ftco-animate"
-							data-tilt data-tilt-max="10" data-tilt-speed="400"
-							style="min-width: 160px; border: 1px solid rgba(255, 255, 255, 0.1);">
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
-								width="55" height="55" class="icon-animate" />
-							<h3 class="h5 mb-0 font-weight-bold mt-2" style="color: #fff;">React.js</h3>
-							<span
-								style="color: var(--primary-color); font-size: 0.8rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px;">Frontend</span>
-						</div>
-						<div class="glass-card px-4 py-4 m-3 d-flex flex-column align-items-center ftco-animate"
-							data-tilt data-tilt-max="10" data-tilt-speed="400"
-							style="min-width: 160px; border: 1px solid rgba(255, 255, 255, 0.1);">
-							<div class="d-flex icon-animate">
-								<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
-									width="55" height="55" class="mr-2" />
-								<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
-									width="55" height="55" />
-							</div>
-							<h3 class="h5 mb-0 font-weight-bold mt-2" style="color: #fff;">HTML & CSS</h3>
-							<span
-								style="color: var(--primary-color); font-size: 0.8rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px;">Design</span>
-						</div>
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar-premium" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">ShyamM</a>
 
-						<!-- Languages -->
-						<div class="glass-card px-4 py-4 m-3 d-flex flex-column align-items-center ftco-animate"
-							data-tilt data-tilt-max="10" data-tilt-speed="400"
-							style="min-width: 160px; border: 1px solid rgba(255, 255, 255, 0.1);">
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
-								width="55" height="55" class="icon-animate" />
-							<h3 class="h5 mb-0 font-weight-bold mt-2" style="color: #fff;">JavaScript</h3>
-							<span
-								style="color: var(--primary-color); font-size: 0.8rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px;">Language</span>
-						</div>
-						<div class="glass-card px-4 py-4 m-3 d-flex flex-column align-items-center ftco-animate"
-							data-tilt data-tilt-max="10" data-tilt-speed="400"
-							style="min-width: 160px; border: 1px solid rgba(255, 255, 255, 0.1);">
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
-								width="55" height="55" class="icon-animate" />
-							<h3 class="h5 mb-0 font-weight-bold mt-2" style="color: #fff;">TypeScript</h3>
-							<span
-								style="color: var(--primary-color); font-size: 0.8rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px;">Language</span>
-						</div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
 
-						<!-- Backend -->
-						<div class="glass-card px-4 py-4 m-3 d-flex flex-column align-items-center ftco-animate"
-							data-tilt data-tilt-max="10" data-tilt-speed="400"
-							style="min-width: 160px; border: 1px solid rgba(255, 255, 255, 0.1);">
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
-								width="55" height="55" class="icon-animate" />
-							<h3 class="h5 mb-0 font-weight-bold mt-2" style="color: #fff;">Node.js</h3>
-							<span
-								style="color: var(--primary-color); font-size: 0.8rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px;">Backend</span>
-						</div>
-						<div class="glass-card px-4 py-4 m-3 d-flex flex-column align-items-center ftco-animate"
-							data-tilt data-tilt-max="10" data-tilt-speed="400"
-							style="min-width: 160px; border: 1px solid rgba(255, 255, 255, 0.1);">
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg"
-								width="55" height="55" class="icon-animate" />
-							<h3 class="h5 mb-0 font-weight-bold mt-2" style="color: #fff;">Nest.js</h3>
-							<span
-								style="color: var(--primary-color); font-size: 0.8rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px;">Backend</span>
-						</div>
-						<div class="glass-card px-4 py-4 m-3 d-flex flex-column align-items-center ftco-animate"
-							data-tilt data-tilt-max="10" data-tilt-speed="400"
-							style="min-width: 160px; border: 1px solid rgba(255, 255, 255, 0.1);">
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg"
-								width="55" height="55" class="icon-animate" />
-							<h3 class="h5 mb-0 font-weight-bold mt-2" style="color: #fff;">GraphQL</h3>
-							<span
-								style="color: var(--primary-color); font-size: 0.8rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px;">API / Query</span>
-						</div>
-						<div class="glass-card px-4 py-4 m-3 d-flex flex-column align-items-center ftco-animate"
-							data-tilt data-tilt-max="10" data-tilt-speed="400"
-							style="min-width: 160px; border: 1px solid rgba(255, 255, 255, 0.1);">
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
-								width="55" height="55" class="icon-animate" />
-							<h3 class="h5 mb-0 font-weight-bold mt-2" style="color: #fff;">Python</h3>
-							<span
-								style="color: var(--primary-color); font-size: 0.8rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px;">Backend</span>
-						</div>
-						<div class="glass-card px-4 py-4 m-3 d-flex flex-column align-items-center ftco-animate"
-							data-tilt data-tilt-max="10" data-tilt-speed="400"
-							style="min-width: 160px; border: 1px solid rgba(255, 255, 255, 0.1);">
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg"
-								width="55" height="55" class="icon-animate" />
-							<h3 class="h5 mb-0 font-weight-bold mt-2" style="color: #fff;">PHP</h3>
-							<span
-								style="color: var(--primary-color); font-size: 0.8rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px;">Backend</span>
-						</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-						<!-- Database & Cloud -->
-						<div class="glass-card px-4 py-4 m-3 d-flex flex-column align-items-center ftco-animate"
-							data-tilt data-tilt-max="10" data-tilt-speed="400"
-							style="min-width: 160px; border: 1px solid rgba(255, 255, 255, 0.1);">
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg"
-								width="55" height="55" class="icon-animate" />
-							<h3 class="h5 mb-0 font-weight-bold mt-2" style="color: #fff;">SQL</h3>
-							<span
-								style="color: var(--primary-color); font-size: 0.8rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px;">Database</span>
-						</div>
-						<div class="glass-card px-4 py-4 m-3 d-flex flex-column align-items-center ftco-animate"
-							data-tilt data-tilt-max="10" data-tilt-speed="400"
-							style="min-width: 160px; border: 1px solid rgba(255, 255, 255, 0.1);">
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"
-								width="55" height="55" class="icon-animate" />
-							<h3 class="h5 mb-0 font-weight-bold mt-2" style="color: #fff;">PostgreSQL</h3>
-							<span
-								style="color: var(--primary-color); font-size: 0.8rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px;">Database</span>
-						</div>
-						<div class="glass-card px-4 py-4 m-3 d-flex flex-column align-items-center ftco-animate"
-							data-tilt data-tilt-max="10" data-tilt-speed="400"
-							style="min-width: 160px; border: 1px solid rgba(255, 255, 255, 0.1);">
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg"
-								width="55" height="55" class="icon-animate" />
-							<h3 class="h5 mb-0 font-weight-bold mt-2" style="color: #fff;">MongoDB</h3>
-							<span
-								style="color: var(--primary-color); font-size: 0.8rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px;">Database</span>
-						</div>
-						<div class="glass-card px-4 py-4 m-3 d-flex flex-column align-items-center ftco-animate"
-							data-tilt data-tilt-max="10" data-tilt-speed="400"
-							style="min-width: 160px; border: 1px solid rgba(255, 255, 255, 0.1);">
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sequelize/sequelize-original.svg"
-								width="55" height="55" class="icon-animate" />
-							<h3 class="h5 mb-0 font-weight-bold mt-2" style="color: #fff;">Sequelize</h3>
-							<span
-								style="color: var(--primary-color); font-size: 0.8rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px;">Database
-								/ ORM</span>
-						</div>
-						<div class="glass-card px-4 py-4 m-3 d-flex flex-column align-items-center ftco-animate"
-							data-tilt data-tilt-max="10" data-tilt-speed="400"
-							style="min-width: 160px; border: 1px solid rgba(255, 255, 255, 0.1);">
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg"
-								width="55" height="55" class="icon-animate" />
-							<h3 class="h5 mb-0 font-weight-bold mt-2" style="color: #fff;">Firebase</h3>
-							<span
-								style="color: var(--primary-color); font-size: 0.8rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px;">Database</span>
-						</div>
-						<div class="glass-card px-4 py-4 m-3 d-flex flex-column align-items-center ftco-animate"
-							data-tilt data-tilt-max="10" data-tilt-speed="400"
-							style="min-width: 160px; border: 1px solid rgba(255, 255, 255, 0.1);">
-							<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
-								width="55" height="55" class="icon-animate" />
-							<h3 class="h5 mb-0 font-weight-bold mt-2" style="color: #fff;">AWS</h3>
-							<span
-								style="color: var(--primary-color); font-size: 0.8rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px;">Cloud</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+  <div class="nav-overlay" id="navOverlay"></div>
 
+  <!-- ===== SOCIAL SIDEBAR ===== -->
+  <div class="social-sidebar">
+    <a href="https://github.com/Shyammohan1998" target="_blank" rel="noopener" aria-label="GitHub"><span class="icon-github"></span></a>
+    <a href="https://www.linkedin.com/in/shyam-mohan-7a31481ab/" target="_blank" rel="noopener" aria-label="LinkedIn"><span class="icon-linkedin"></span></a>
+    <a href="https://www.instagram.com/_shya_m_ohan_/" target="_blank" rel="noopener" aria-label="Instagram"><span class="icon-instagram"></span></a>
+    <a href="https://www.facebook.com/profile.php?id=100015297481418" target="_blank" rel="noopener" aria-label="Facebook"><span class="icon-facebook"></span></a>
+  </div>
 
-	<!-- <section class="ftco-section ftco-project" id="projects-section">
-    	<div class="container">
-    		<div class="row justify-content-center pb-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-          	<h1 class="big big-2">Projects</h1>
-            <h2 class="mb-4">Our Projects</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <span class="hero-greeting">Hello, I'm</span>
+          <h1 class="hero-name">
+            <span class="gradient">Shyam Mohan</span>
+          </h1>
+          <p class="hero-tagline">
+            Full Stack <strong>JavaScript Developer</strong> crafting robust<br class="d-none d-md-block">
+            digital experiences with modern technologies. Turning complex problems into elegant, user-friendly solutions.
+          </p>
+          <div class="hero-typed-wrapper">
+            <span class="hero-typed-text">I'm a <span class="typing" id="typedOutput"></span></span>
+          </div>
+          <div class="hero-cta">
+            <a href="https://drive.google.com/file/d/1VUznBEYpXM2XrdfpirFT4poEjQtZ11Vn/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-premium primary"><span>Download CV</span></a>
+            <a href="#projects" class="btn-premium secondary"><span>View Projects</span></a>
           </div>
         </div>
-    		<div class="row">
-    			<div class="col-md-4">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-4.jpg);">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-  				</div>
-  				<div class="col-md-8">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-5.jpg);">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-  				</div>
 
-    			<div class="col-md-8">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-1.jpg);">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
+        <div class="hero-visual">
+          <div class="hero-image-wrapper">
+            <div class="hero-image-ring"></div>
+            <div class="hero-image-ring-2"></div>
+            <div class="hero-image" style="background-image: url(images/bg_1.png);"></div>
+            <!-- Floating Tech Badges -->
+            <div class="tech-badge" style="top:5%;right:-10%;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" width="18" height="18"> React
+            </div>
+            <div class="tech-badge" style="top:-8%;left:30%;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg" alt="NestJS" width="18" height="18"> NestJS
+            </div>
+            <div class="tech-badge" style="bottom:15%;right:-15%;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js" width="18" height="18"> Node.js
+            </div>
+            <div class="tech-badge" style="bottom:-5%;left:10%;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript" width="18" height="18"> TypeScript
+            </div>
+            <div class="tech-badge" style="top:40%;left:-18%;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" width="18" height="18"> PostgreSQL
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-6.jpg);">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="row">
-    					<div class="col-md-12">
-		    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-2.jpg);">
-		    					<div class="overlay"></div>
-			    				<div class="text text-center p-4">
-			    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-			    					<span>Web Design</span>
-			    				</div>
-		    				</div>
-	    				</div>
-	    				<div class="col-md-12">
-		    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-3.jpg);">
-		    					<div class="overlay"></div>
-			    				<div class="text text-center p-4">
-			    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-			    					<span>Web Design</span>
-			    				</div>
-		    				</div>
-	    				</div>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section> -->
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
 
-	<section class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg)">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-7 ftco-animate text-center">
-					<h2>I'm <span>Available</span> for freelancing</h2>
-					<p class="mb-0"><a href="#" class="btn btn-primary py-3 px-5">Hire me</a></p>
-				</div>
-			</div>
-		</div>
-	</section>
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <span class="section-label">About</span>
+        <h2 class="section-title">Know Me <span class="gradient">Better</span></h2>
+        <p class="section-subtitle">A passionate Full Stack JavaScript Developer with a creative edge and a drive for building exceptional digital products.</p>
+      </div>
 
-	<section class="ftco-section contact-section ftco-no-pb" id="contact-section">
-		<div class="container">
-			<div class="row justify-content-center mb-5 pb-3">
-				<div class="col-md-7 heading-section text-center ftco-animate">
-					<h1 class="big big-2">Contact</h1>
-					<h2 class="mb-4">Contact Me</h2>
-				</div>
-			</div>
-			<div class="row d-flex contact-info mb-5">
-				<div class="col-md-4 col-lg-4 d-flex ftco-animate">
-					<div class="align-self-stretch box p-4 text-center glass-card" data-tilt data-tilt-max="10"
-						data-tilt-speed="400">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="icon-paper-plane"></span>
-						</div>
-						<h3 class="mb-4">Email Address</h3>
-						<p><a href="mailto:shyammohan141298@gmail.com">shyammohan141298@gmail.com</a></p>
-					</div>
-				</div>
-				<div class="col-md-4 col-lg-4 d-flex ftco-animate">
-					<div class="align-self-stretch box p-4 text-center glass-card" data-tilt data-tilt-max="10"
-						data-tilt-speed="400">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="icon-map-signs"></span>
-						</div>
-						<h3 class="mb-4">Address</h3>
-						<p>Kizhakkemadom(H) Amayannoor PO Kottayam, Kerala, India</p>
-					</div>
-				</div>
-				<div class="col-md-4 col-lg-4 d-flex ftco-animate">
-					<div class="align-self-stretch box p-4 text-center glass-card" data-tilt data-tilt-max="10"
-						data-tilt-speed="400">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="icon-phone2"></span>
-						</div>
-						<h3 class="mb-4">Contact Number</h3>
-						<p><a href="tel://7909232372">+91 7909232372</a></p>
-					</div>
-				</div>
-			</div>
+      <div class="about-grid">
+        <div class="about-image-wrapper reveal reveal-delay-1">
+          <div class="about-image-frame">
+            <img src="images/about.png" alt="Shyam Mohan">
+          </div>
+          <div class="about-exp-badge">
+            <span class="number" id="experienceCounter">0.0</span>
+            <span class="label">Years of<br>Experience</span>
+          </div>
+        </div>
 
-			<div class="row no-gutters block-9">
-				<div class="col-md-6 order-md-last d-flex">
-					<form action="https://formsubmit.co/shyammohan141298@gmail.com" method="POST"
-						class="contact-form glass-card p-4 p-md-5" id="contactForm">
-						<!-- Honeypot -->
-						<input type="text" name="_honey" style="display:none">
-						<!-- Disable Captcha -->
-						<input type="hidden" name="_captcha" value="false">
+        <div class="about-content reveal reveal-delay-2">
+          <h3>Full Stack JavaScript Developer</h3>
+          <p>I am a Full Stack JavaScript Developer with experience in Node.js and React.js. I hold both graduate and postgraduate degrees in Computer Science from Mahatma Gandhi University. My project work focused mainly on software development, and alongside my technical background, I am also an artist with a strong creative perspective.</p>
 
-						<div class="form-group">
-							<input type="text" name="name" class="form-control" placeholder="Your Name" required>
-						</div>
-						<div class="form-group">
-							<input type="email" name="email" class="form-control" placeholder="Your Email" required>
-						</div>
-						<div class="form-group">
-							<input type="text" name="_subject" class="form-control" placeholder="Subject" required>
-						</div>
-						<div class="form-group">
-							<textarea name="message" id="message" cols="30" rows="7" class="form-control"
-								placeholder="Message" required></textarea>
-						</div>
-						<div class="form-group mt-4">
-							<center>
-								<input type="submit" value="Send Message" class="btn btn-primary py-3 px-5"
-									id="submitBtn">
-							</center>
-						</div>
+          <ul class="about-details">
+            <li><strong>Name:</strong> Shyam Mohan</li>
+            <li><strong>Date of birth:</strong> December 14, 1998</li>
+            <li><strong>Address:</strong> Kottayam, Kerala, India</li>
+            <li><strong>Email:</strong> shyammohan141298@gmail.com</li>
+            <li><strong>Phone:</strong> +91 7909232372</li>
+          </ul>
 
-						<div id="form-message-success" class="text-success text-center mt-3"
-							style="display:none; font-weight: bold;">
-							Your message was sent successfully! I will get back to you soon.
-						</div>
-						<div id="form-message-error" class="text-danger text-center mt-3"
-							style="display:none; font-weight: bold;">
-							Sorry, something went wrong. Please try again later.
-						</div>
-					</form>
+          <div class="about-stats">
+            <div class="stat-item">
+              <div class="stat-number"><span class="number" data-number="4">0</span>+</div>
+              <div class="stat-label">Years Exp</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number"><span class="number" data-number="15">0</span>+</div>
+              <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number"><span class="number" data-number="15">0</span>+</div>
+              <div class="stat-label">Technologies</div>
+            </div>
+            <div class="stat-item" style="justify-content:center;">
+              <a href="https://drive.google.com/file/d/1VUznBEYpXM2XrdfpirFT4poEjQtZ11Vn/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-premium primary" style="padding:10px 20px;font-size:0.75rem;">
+                <span>Download CV</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-				</div>
+  <!-- ===== RESUME ===== -->
+  <section class="section" id="resume">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <span class="section-label">Resume</span>
+        <h2 class="section-title">Experience & <span class="gradient">Education</span></h2>
+        <p class="section-subtitle">Experienced Software Engineer with a strong academic foundation in Computer Science.</p>
+      </div>
 
-				<div class="col-md-6 d-flex">
-					<div class="img" style="background-image: url(images/bg_2.jpg);"></div>
-				</div>
-			</div>
-		</div>
-	</section>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-date">2021 — Present</span>
+            <h3>Software Engineer</h3>
+            <p class="position">TechTaliya Informatics Pvt. Ltd</p>
+          </div>
+        </div>
 
+        <div class="timeline-item reveal reveal-delay-1">
+          <div class="timeline-dot accent"></div>
+          <div class="timeline-card">
+            <span class="timeline-date">2019 — 2021</span>
+            <h3>Master of Science in Computer Science</h3>
+            <p class="position">Mahatma Gandhi University</p>
+          </div>
+        </div>
 
-	<footer class="ftco-footer ftco-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<ul class="ftco-footer-social list-unstyled mt-5">
-						<li class="ftco-animate"><a href="https://www.instagram.com/_shya_m_ohan_/"><span
-									class="icon-instagram"></span></a></li>
-						<li class="ftco-animate"><a href="https://www.facebook.com/profile.php?id=100015297481418"><span
-									class="icon-facebook"></span></a></li>
-						<li class="ftco-animate"><a href="https://www.linkedin.com/in/shyam-mohan-7a31481ab/"><span
-									class="icon-linkedin"></span></a></li>
-						<li class="ftco-animate"><a href="https://github.com/Shyammohan1998"><span
-									class="icon-github"></span></a></li>
-					</ul>
-					<p>Copyright &copy;2021 All rights reserved | Designed by <a href="#" target="_blank">ShyamM</a></p>
-				</div>
-			</div>
-		</div>
-	</footer>
+        <div class="timeline-item reveal reveal-delay-2">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-date">2016 — 2019</span>
+            <h3>Bachelor of Science in Computer Science</h3>
+            <p class="position">Mahatma Gandhi University</p>
+          </div>
+        </div>
 
+        <div class="timeline-item reveal reveal-delay-3">
+          <div class="timeline-dot accent"></div>
+          <div class="timeline-card">
+            <span class="timeline-date">2014 — 2016</span>
+            <h3>Higher Secondary</h3>
+            <p class="position">St Marys HSS Manarcad</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- ===== SERVICES ===== -->
+  <section class="section" id="services">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <span class="section-label">Services</span>
+        <h2 class="section-title">What I <span class="gradient">Do</span></h2>
+        <p class="section-subtitle">Helping businesses and individuals bring their digital ideas to life with clean, modern, and performant solutions.</p>
+      </div>
 
-	<!-- loader -->
-	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-				stroke="#F96D00" />
-		</svg></div>
+      <div class="services-grid">
+        <div class="service-card reveal" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-perspective="1000">
+          <div class="service-icon"><i class="flaticon-ideas"></i></div>
+          <h3>Web Application Development</h3>
+          <p>Building custom admin panels, dynamic websites, and full-stack web applications with modern frameworks and best practices.</p>
+        </div>
 
-	<!-- Back to Top Button -->
-	<a id="back-to-top" href="#" class="back-to-top-btn">
-		<i class="icon-arrow-up"></i>
-	</a>
+        <div class="service-card reveal reveal-delay-1" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-perspective="1000">
+          <div class="service-icon"><i class="flaticon-analysis"></i></div>
+          <h3>Backend API Development</h3>
+          <p>Designing and developing scalable RESTful & GraphQL APIs with Node.js, Nest.js, and robust database architecture.</p>
+        </div>
 
+        <div class="service-card reveal reveal-delay-2" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-perspective="1000">
+          <div class="service-icon"><i class="flaticon-flasks"></i></div>
+          <h3>UI / UX Design</h3>
+          <p>Crafting clean, intuitive interfaces with a strong focus on user experience, responsive design, and modern aesthetics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/jquery-migrate-3.0.1.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.easing.1.3.js"></script>
-	<script src="js/jquery.waypoints.min.js"></script>
-	<script src="js/jquery.stellar.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/aos.js"></script>
-	<script src="js/jquery.animateNumber.min.js"></script>
-	<script src="js/scrollax.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-	<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+  <!-- ===== SKILLS ===== -->
+  <section class="section" id="skills">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <span class="section-label">Skills</span>
+        <h2 class="section-title">My <span class="gradient">Tech Stack</span></h2>
+        <p class="section-subtitle">A comprehensive toolkit of technologies I work with daily to deliver production-ready solutions.</p>
+      </div>
 
-	<script src="js/main.js"></script>
+      <div class="skills-section">
+        <!-- Frontend -->
+        <div class="skills-category reveal">
+          <h3 class="skills-category-title">Frontend & Design</h3>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React">
+              <h4>React.js</h4>
+              <span class="skill-tag">Frontend</span>
+            </div>
+            <div class="skill-card">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" alt="Next.js">
+              <h4>Next.js</h4>
+              <span class="skill-tag">Frontend</span>
+            </div>
+            <div class="skill-card">
+              <div class="d-flex justify-content-center gap-2" style="display:flex;gap:8px;margin-bottom:12px;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML" width="40" height="40">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS" width="40" height="40">
+              </div>
+              <h4>HTML & CSS</h4>
+              <span class="skill-tag">Design</span>
+            </div>
+            <div class="skill-card">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript">
+              <h4>JavaScript</h4>
+              <span class="skill-tag">Language</span>
+            </div>
+            <div class="skill-card">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript">
+              <h4>TypeScript</h4>
+              <span class="skill-tag">Language</span>
+            </div>
+          </div>
+        </div>
 
-	<!-- Custom Cursor Elements -->
-	<div class="cursor"></div>
-	<div class="cursor2"></div>
+        <!-- Backend -->
+        <div class="skills-category reveal reveal-delay-1">
+          <h3 class="skills-category-title">Backend</h3>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js">
+              <h4>Node.js</h4>
+              <span class="skill-tag">Backend</span>
+            </div>
+            <div class="skill-card">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg" alt="Nest.js">
+              <h4>Nest.js</h4>
+              <span class="skill-tag">Backend</span>
+            </div>
+            <div class="skill-card">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg" alt="GraphQL">
+              <h4>GraphQL</h4>
+              <span class="skill-tag">API / Query</span>
+            </div>
+            <div class="skill-card">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python">
+              <h4>Python</h4>
+              <span class="skill-tag">Backend</span>
+            </div>
+            <div class="skill-card">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP">
+              <h4>PHP</h4>
+              <span class="skill-tag">Backend</span>
+            </div>
+          </div>
+        </div>
 
-	<script>
-		let typed1 = null;
-		let typed2 = null;
+        <!-- Database & Cloud -->
+        <div class="skills-category reveal reveal-delay-2">
+          <h3 class="skills-category-title">Database & Cloud</h3>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="SQL">
+              <h4>SQL</h4>
+              <span class="skill-tag">Database</span>
+            </div>
+            <div class="skill-card">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
+              <h4>PostgreSQL</h4>
+              <span class="skill-tag">Database</span>
+            </div>
+            <div class="skill-card">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+              <h4>MongoDB</h4>
+              <span class="skill-tag">Database</span>
+            </div>
+            <div class="skill-card">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sequelize/sequelize-original.svg" alt="Sequelize">
+              <h4>Sequelize</h4>
+              <span class="skill-tag">ORM</span>
+            </div>
+            <div class="skill-card">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" alt="Firebase">
+              <h4>Firebase</h4>
+              <span class="skill-tag">Database</span>
+            </div>
+            <div class="skill-card">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS">
+              <h4>AWS</h4>
+              <span class="skill-tag">Cloud</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-		function initTypedOnActiveSlide() {
-			setTimeout(function () {
-				const activeSlide = $('.home-slider .owl-item.active');
+  <!-- ===== PROJECTS ===== -->
+  <section class="section" id="projects">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <span class="section-label">Portfolio</span>
+        <h2 class="section-title">Featured <span class="gradient">Projects</span></h2>
+        <p class="section-subtitle">A selection of projects I've built — each one solving real problems with clean code and thoughtful design.</p>
+      </div>
 
-				if (typed1) { typed1.destroy(); typed1 = null; }
-				if (typed2) { typed2.destroy(); typed2 = null; }
+      <div class="projects-grid">
 
-				// Clean up any stray cursors or text from cloned elements
-				$('.typed-anim-1, .typed-anim-2').text('');
-				$('.typed-cursor').remove();
+        <div class="project-card reveal reveal-delay-1" data-tilt data-tilt-max="5" data-tilt-speed="400" style="background: linear-gradient(135deg, rgba(34,211,238,0.12), rgba(59,130,246,0.08));">
+          <div class="project-overlay">
+            <h3>Catering ERP</h3>
+            <p>Admin panel and backend for catering service management.</p>
+            <div class="project-tags">
+              <span>Node.js</span>
+              <span>Sequelize</span>
+              <span>PostgreSQL</span>
+            </div>
+          </div>
+        </div>
 
-				const target1 = activeSlide.find('.typed-anim-1')[0];
-				const target2 = activeSlide.find('.typed-anim-2')[0];
+        <div class="project-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" style="background: linear-gradient(135deg, rgba(236,72,153,0.12), rgba(139,92,246,0.08));">
+          <div class="project-overlay">
+            <h3>Dating Application</h3>
+            <p>Admin panel and backend for matchmaking platform.</p>
+            <div class="project-tags">
+              <span>Nest.js</span>
+              <span>PostgreSQL</span>
+              <span>AWS</span>
+            </div>
+          </div>
+        </div>
 
-				if (target1) {
-					typed1 = new Typed(target1, {
-						strings: ['A Software Engineer', 'A Web Developer', 'A Backend Specialist'],
-						typeSpeed: 60,
-						backSpeed: 40,
-						backDelay: 1000,
-						loop: false,
-						showCursor: true,
-						onComplete: (self) => {
-							setTimeout(() => {
-								$('.home-slider').trigger('next.owl.carousel');
-							}, 2000); // Wait 2 seconds before sliding to next
-						}
-					});
-				}
+        <div class="project-card reveal reveal-delay-2" data-tilt data-tilt-max="5" data-tilt-speed="400" style="background: linear-gradient(135deg, rgba(245,158,11,0.12), rgba(249,115,22,0.08));">
+          <div class="project-overlay">
+            <h3>Google Ads Application</h3>
+            <p>Admin panel and backend for managing Google ad campaigns.</p>
+            <div class="project-tags">
+              <span>Node.js</span>
+              <span>GraphQL</span>
+              <span>PostgreSQL</span>
+            </div>
+          </div>
+        </div>
 
-				if (target2) {
-					typed2 = new Typed(target2, {
-						strings: ['Full Stack Developer', 'Freelance Developer', 'Tech Enthusiast'],
-						typeSpeed: 60,
-						backSpeed: 40,
-						backDelay: 1000,
-						loop: false,
-						showCursor: true,
-						onComplete: (self) => {
-							setTimeout(() => {
-								$('.home-slider').trigger('next.owl.carousel');
-							}, 2000);
-						}
-					});
-				}
-			}, 300); // 300ms delay to let the slide transition complete beautifully
-		}
+        <div class="project-card reveal reveal-delay-1" data-tilt data-tilt-max="5" data-tilt-speed="400" style="background: linear-gradient(135deg, rgba(139,92,246,0.12), rgba(59,130,246,0.08));">
+          <div class="project-overlay">
+            <h3>Hospital Management System</h3>
+            <p>Admin panel, chatbot and backend for hospital operations.</p>
+            <div class="project-tags">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>Chatbot</span>
+            </div>
+          </div>
+        </div>
 
-		// Run immediately for the first slide
-		initTypedOnActiveSlide();
+        <div class="project-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" style="background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(249,115,22,0.08));">
+          <div class="project-overlay">
+            <h3>Card Game Backend</h3>
+            <p>Scalable backend service for multiplayer card game logic.</p>
+            <div class="project-tags">
+              <span>Node.js</span>
+              <span>WebSocket</span>
+              <span>Redis</span>
+            </div>
+          </div>
+        </div>
 
-		// Run every time the slide changes
-		$('.home-slider').on('changed.owl.carousel', function (e) {
-			initTypedOnActiveSlide();
-		});
+        <div class="project-card reveal reveal-delay-2" data-tilt data-tilt-max="5" data-tilt-speed="400" style="background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(59,130,246,0.08));">
+          <div class="project-overlay">
+            <h3>Insurance ERP</h3>
+            <p>Admin panel and backend for insurance enterprise resource planning.</p>
+            <div class="project-tags">
+              <span>Node.js</span>
+              <span>PostgreSQL</span>
+              <span>React</span>
+            </div>
+          </div>
+        </div>
 
-		// Interactive Mouse Effects for Glass Cards
-		document.addEventListener('mousemove', e => {
-			document.querySelectorAll('.glass-card, .services-1, .contact-info .box').forEach(card => {
-				const rect = card.getBoundingClientRect();
-				const x = e.clientX - rect.left;
-				const y = e.clientY - rect.top;
-				card.style.setProperty('--mouse-x', `${x}px`);
-				card.style.setProperty('--mouse-y', `${y}px`);
-			});
-		});
+        <div class="project-card reveal reveal-delay-1" data-tilt data-tilt-max="5" data-tilt-speed="400" style="background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(139,92,246,0.08));">
+          <div class="project-overlay">
+            <h3>HRMS</h3>
+            <p>Admin panel and backend for human resource management.</p>
+            <div class="project-tags">
+              <span>Nest.js</span>
+              <span>PostgreSQL</span>
+              <span>TypeScript</span>
+            </div>
+          </div>
+        </div>
 
-		// Magnetic Buttons Effect
-		const magneticButtons = document.querySelectorAll('.btn-primary, .back-to-top-btn');
-		magneticButtons.forEach(btn => {
-			btn.addEventListener('mousemove', function (e) {
-				const rect = this.getBoundingClientRect();
-				const x = e.clientX - rect.left - rect.width / 2;
-				const y = e.clientY - rect.top - rect.height / 2;
+        <div class="project-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" style="background: linear-gradient(135deg, rgba(249,115,22,0.12), rgba(139,92,246,0.08));">
+          <div class="project-overlay">
+            <h3>Pooja Booking Counter</h3>
+            <p>Website, admin panel and backend for booking management.</p>
+            <div class="project-tags">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>PostgreSQL</span>
+            </div>
+          </div>
+        </div>
 
-				this.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.05)`;
-			});
+        <div class="project-card reveal reveal-delay-1" data-tilt data-tilt-max="5" data-tilt-speed="400" style="background: linear-gradient(135deg, rgba(234,179,8,0.12), rgba(245,158,11,0.08));">
+          <div class="project-overlay">
+            <h3>Online Course Portal</h3>
+            <p>Website and admin panel for online course management.</p>
+            <div class="project-tags">
+              <span>PHP</span>
+              <span>MySQL</span>
+              <span>Admin Panel</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-			btn.addEventListener('mouseleave', function (e) {
-				this.style.transform = '';
-			});
-		});
+  <!-- ===== CTA BANNER ===== -->
+  <section class="section" style="padding-top:0;">
+    <div class="section-container">
+      <div class="cta-banner reveal">
+        <h2>I'm <span>Available</span> for Freelancing</h2>
+        <p>Let's collaborate and bring your ideas to life with clean, modern code.</p>
+        <a href="#contact" class="btn-premium primary"><span>Get in Touch</span></a>
+      </div>
+    </div>
+  </section>
 
-		if (window.innerWidth >= 992) {
-			const cursor = document.querySelector('.cursor');
-			const cursorinner = document.querySelector('.cursor2');
-			const a = document.querySelectorAll('a, button, .btn');
+  <!-- ===== CONTACT ===== -->
+  <section class="section" id="contact">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <span class="section-label">Contact</span>
+        <h2 class="section-title">Let's <span class="gradient">Connect</span></h2>
+        <p class="section-subtitle">Have a project in mind? Let's talk about how I can help you build something great.</p>
+      </div>
 
-			document.addEventListener('mousemove', function (e) {
-				cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
-				cursorinner.style.left = e.clientX + 'px';
-				cursorinner.style.top = e.clientY + 'px';
-			});
+      <div class="contact-grid">
+        <div class="contact-info-cards reveal reveal-delay-1">
+          <div class="contact-info-card" data-tilt data-tilt-max="5" data-tilt-speed="400">
+            <div class="icon"><span class="icon-paper-plane"></span></div>
+            <div>
+              <h4>Email Address</h4>
+              <p><a href="mailto:shyammohan141298@gmail.com">shyammohan141298@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="contact-info-card" data-tilt data-tilt-max="5" data-tilt-speed="400">
+            <div class="icon"><span class="icon-map-signs"></span></div>
+            <div>
+              <h4>Location</h4>
+              <p>Kottayam, Kerala, India</p>
+            </div>
+          </div>
+          <div class="contact-info-card" data-tilt data-tilt-max="5" data-tilt-speed="400">
+            <div class="icon"><span class="icon-phone2"></span></div>
+            <div>
+              <h4>Phone</h4>
+              <p><a href="tel:+917909232372">+91 7909232372</a></p>
+            </div>
+          </div>
+        </div>
 
-			document.addEventListener('mousedown', function (e) {
-				cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0) scale(0.7)`;
-				cursorinner.style.transform = `translate(-50%, -50%) scale(0.7)`;
-			});
+        <div class="reveal reveal-delay-2">
+          <form class="contact-form-card" action="https://formsubmit.co/shyammohan141298@gmail.com" method="POST" id="contactForm">
+            <input type="text" name="_honey" style="display:none">
+            <input type="hidden" name="_captcha" value="false">
 
-			document.addEventListener('mouseup', function (e) {
-				cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0) scale(1)`;
-				cursorinner.style.transform = `translate(-50%, -50%) scale(1)`;
-			});
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <input type="text" name="_subject" placeholder="Subject" required>
+            </div>
+            <div class="form-group">
+              <textarea name="message" placeholder="Your Message" required></textarea>
+            </div>
 
-			a.forEach(item => {
-				item.addEventListener('mouseover', () => {
-					cursor.style.border = 'none';
-					cursorinner.style.backgroundColor = '#fff';
-					cursor.style.width = '70px';
-					cursor.style.height = '70px';
-				});
-				item.addEventListener('mouseleave', () => {
-					cursor.style.border = '1px solid var(--primary-color)';
-					cursorinner.style.backgroundColor = 'var(--primary-color)';
-					cursor.style.width = '50px';
-					cursor.style.height = '50px';
-				});
-			});
-		}
+            <div id="formSuccess" class="text-success text-center mb-3" style="display:none;font-weight:600;">
+              Your message was sent successfully! I will get back to you soon.
+            </div>
+            <div id="formError" class="text-danger text-center mb-3" style="display:none;font-weight:600;">
+              Sorry, something went wrong. Please try again later.
+            </div>
 
-		// Handle Form Submission with AJAX
-		document.getElementById('contactForm').addEventListener('submit', function (e) {
-			e.preventDefault();
+            <button type="submit" class="form-submit" id="submitBtn">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
-			var form = e.target;
-			var submitBtn = document.getElementById('submitBtn');
-			var originalBtnText = submitBtn.value;
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="footer">
+    <div class="section-container">
+      <ul class="footer-social">
+        <li><a href="https://www.instagram.com/_shya_m_ohan_/" target="_blank" rel="noopener" aria-label="Instagram"><span class="icon-instagram"></span></a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=100015297481418" target="_blank" rel="noopener" aria-label="Facebook"><span class="icon-facebook"></span></a></li>
+        <li><a href="https://www.linkedin.com/in/shyam-mohan-7a31481ab/" target="_blank" rel="noopener" aria-label="LinkedIn"><span class="icon-linkedin"></span></a></li>
+        <li><a href="https://github.com/Shyammohan1998" target="_blank" rel="noopener" aria-label="GitHub"><span class="icon-github"></span></a></li>
+      </ul>
+      <p class="footer-copy">
+        Copyright &copy; 2024 All rights reserved | Designed by <a href="#">ShyamM</a>
+      </p>
+    </div>
+  </footer>
 
-			// Show sending state
-			submitBtn.value = 'Sending...';
-			submitBtn.disabled = true;
-			document.getElementById('form-message-success').style.display = 'none';
-			document.getElementById('form-message-error').style.display = 'none';
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <span class="icon-arrow-up"></span>
+  </button>
 
-			var formData = new FormData(form);
+  <!-- ===== SCRIPTS ===== -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-			// Send data to FormSubmit via AJAX endpoint
-			fetch("https://formsubmit.co/ajax/shyammohan141298@gmail.com", {
-				method: "POST",
-				headers: {
-					'Accept': 'application/json'
-				},
-				body: formData
-			})
-				.then(response => response.json())
-				.then(data => {
-					if (data.success) {
-						// Show success and reset form
-						document.getElementById('form-message-success').style.display = 'block';
-						form.reset();
-					} else {
-						// Show error
-						document.getElementById('form-message-error').style.display = 'block';
-					}
-				})
-				.catch(error => {
-					document.getElementById('form-message-error').style.display = 'block';
-				})
-				.finally(() => {
-					// Restore button state
-					submitBtn.value = originalBtnText;
-					submitBtn.disabled = false;
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 
-					// Hide success message after 5 seconds
-					setTimeout(() => {
-						document.getElementById('form-message-success').style.display = 'none';
-					}, 5000);
-				});
-		});
+  <script src="js/main.js"></script>
 
-		// Particles.js Config
-		particlesJS("particles-js", {
-			"particles": {
-				"number": { "value": 30, "density": { "enable": true, "value_area": 800 } },
-				"color": { "value": "#F96D00" },
-				"shape": { "type": "circle" },
-				"opacity": { "value": 0.3, "random": false },
-				"size": { "value": 3, "random": true },
-				"line_linked": { "enable": true, "distance": 150, "color": "#F96D00", "opacity": 0.2, "width": 1 },
-				"move": { "enable": true, "speed": 1, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
-			},
-			"interactivity": {
-				"detect_on": "canvas",
-				"events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
-				"modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } }
-			},
-		});
+  <script>
+    // ========== PREMIUM INTERACTIONS ==========
 
-		// Back to Top functionality
-		var btn = $('#back-to-top');
-		$(window).scroll(function () {
-			if ($(window).scrollTop() > 300) {
-				btn.addClass('show');
-			} else {
-				btn.removeClass('show');
-			}
-		});
-		btn.on('click', function (e) {
-			e.preventDefault();
-			$('html, body').animate({ scrollTop: 0 }, '300');
-		});
+    // --- Typed.js ---
+    new Typed('#typedOutput', {
+      strings: [
+		'Senior Software Engineer',
+        'Full Stack Developer',
+        'Web Developer',
+        'Backend Specialist',
+        'Tech Enthusiast'
+      ],
+      typeSpeed: 60,
+      backSpeed: 40,
+      backDelay: 1200,
+      loop: true,
+      showCursor: true,
+      cursorChar: '|'
+    });
 
-		// Top progress bar scroll logic
-		$(window).scroll(function() {
-			var winScroll = $(window).scrollTop();
-			var height = $(document).height() - $(window).height();
-			var scrolled = (winScroll / height) * 100;
-			$('#scrollProgress').css('width', scrolled + '%');
-		});
-	</script>
+    // --- Background Particles with Attraction ---
+    (function() {
+      const canvas = document.getElementById('bg-particles');
+      const ctx = canvas.getContext('2d');
+      let W, H;
+
+      function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      const COUNT = 50;
+      const particles = [];
+      let mouseX = -9999, mouseY = -9999;
+      let lastMoveTime = 0;
+
+      for (let i = 0; i < COUNT; i++) {
+        particles.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          size: 1 + Math.random() * 2,
+          baseSpeed: 0.2 + Math.random() * 0.3,
+          angle: Math.random() * Math.PI * 2
+        });
+      }
+
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        lastMoveTime = Date.now();
+      });
+
+      document.addEventListener('mouseleave', () => {
+        mouseX = -9999;
+        mouseY = -9999;
+      });
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        const stopped = Date.now() - lastMoveTime > 400;
+
+        for (const p of particles) {
+          p.vx += (Math.random() - 0.5) * 0.02;
+          p.vy += (Math.random() - 0.5) * 0.02;
+          const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+          if (speed > 0.8) {
+            p.vx = (p.vx / speed) * 0.8;
+            p.vy = (p.vy / speed) * 0.8;
+          }
+
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < -10) p.x = W + 10;
+          if (p.x > W + 10) p.x = -10;
+          if (p.y < -10) p.y = H + 10;
+          if (p.y > H + 10) p.y = -10;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(249, 115, 22, 0.15)';
+          ctx.fill();
+
+          for (const other of particles) {
+            if (p === other) continue;
+            const dx = other.x - p.x;
+            const dy = other.y - p.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(other.x, other.y);
+              ctx.strokeStyle = `rgba(249, 115, 22, ${0.06 * (1 - dist / 120)})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+
+          if (stopped && mouseX > 0 && mouseY > 0) {
+            const dx = mouseX - p.x;
+            const dy = mouseY - p.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 200) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(mouseX, mouseY);
+              ctx.strokeStyle = `rgba(249, 115, 22, ${0.2 * (1 - dist / 200)})`;
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+        }
+
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    // --- Navbar scroll effect ---
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll > 80) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+
+      lastScroll = currentScroll;
+      updateActiveNavLink();
+    });
+
+    // --- Active nav link ---
+    function updateActiveNavLink() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-links a');
+      let current = '';
+
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        const bottom = top + section.offsetHeight;
+        if (window.pageYOffset >= top && window.pageYOffset < bottom) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // --- Mobile Nav ---
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navOverlay = document.getElementById('navOverlay');
+
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navLinks.classList.toggle('open');
+      navOverlay.classList.toggle('open');
+      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+    });
+
+    navOverlay.addEventListener('click', () => {
+      navToggle.classList.remove('active');
+      navLinks.classList.remove('open');
+      navOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('open');
+        navOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // --- ScrollReveal (Intersection Observer) ---
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      revealObserver.observe(el);
+    });
+
+    // --- Experience counter (dynamic years) ---
+    const counterEl = document.getElementById('experienceCounter');
+    if (counterEl) {
+      const startDate = new Date('2021-09-01');
+      const now = new Date();
+      const diff = Math.abs(now - startDate);
+      const years = (diff / (1000 * 60 * 60 * 24 * 365.25)).toFixed(1);
+      counterEl.textContent = years;
+    }
+
+    // --- Animate numbers on scroll (Waypoints replacement) ---
+    const numberObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = entry.target;
+          const num = parseFloat(target.getAttribute('data-number') || target.textContent);
+          const isFloat = num % 1 !== 0;
+          let start = 0;
+          const duration = 2000;
+          const step = Math.max(num / 60, isFloat ? 0.1 : 1);
+          let current = 0;
+
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= num) {
+              target.textContent = isFloat ? num.toFixed(1) : Math.ceil(num);
+              clearInterval(timer);
+            } else {
+              target.textContent = isFloat ? current.toFixed(1) : Math.ceil(current);
+            }
+          }, duration / 60);
+
+          numberObserver.unobserve(target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.number[data-number]').forEach(el => {
+      numberObserver.observe(el);
+    });
+
+    // --- Back to Top ---
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // --- Scroll progress bar ---
+    window.addEventListener('scroll', () => {
+      const winScroll = window.pageYOffset;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('scrollProgress').style.width = scrolled + '%';
+    });
+
+    // --- Custom Cursor ---
+    if (window.innerWidth >= 992) {
+      const cursorInner = document.getElementById('cursorInner');
+      const canvas = document.getElementById('cursorCometCanvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+
+      const points = [];
+      const maxPoints = 30;
+
+      document.addEventListener('mousemove', (e) => {
+        cursorInner.style.left = e.clientX + 'px';
+        cursorInner.style.top = e.clientY + 'px';
+
+        points.push({ x: e.clientX, y: e.clientY, time: Date.now() });
+        if (points.length > maxPoints) points.shift();
+      });
+
+      document.addEventListener('mouseleave', () => {
+        points.length = 0;
+      });
+
+      function drawComet() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const now = Date.now();
+
+        for (let i = 0; i < points.length; i++) {
+          const age = now - points[i].time;
+          if (age > 400) continue;
+          const t = 1 - age / 400;
+          const alpha = t * 0.25;
+          const radius = 1 + t * 1.5;
+          ctx.beginPath();
+          ctx.arc(points[i].x, points[i].y, radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+          ctx.fill();
+        }
+
+        requestAnimationFrame(drawComet);
+      }
+      drawComet();
+
+      document.querySelectorAll('a, button, .btn-premium, .service-card, .skill-card, .project-card, .contact-info-card').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          cursorInner.style.display = 'none';
+        });
+        el.addEventListener('mouseleave', () => {
+          cursorInner.style.display = 'block';
+        });
+      });
+    }
+
+    // --- Glass card mouse tracking for radial gradient effect ---
+    document.addEventListener('mousemove', (e) => {
+      document.querySelectorAll('.service-card, .contact-info-card, .skill-card').forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mx', x + 'px');
+        card.style.setProperty('--my', y + 'px');
+      });
+    });
+
+    // --- Contact Form AJAX ---
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = this;
+      const submitBtn = document.getElementById('submitBtn');
+      const originalText = submitBtn.textContent;
+      const successEl = document.getElementById('formSuccess');
+      const errorEl = document.getElementById('formError');
+
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+      successEl.style.display = 'none';
+      errorEl.style.display = 'none';
+
+      fetch('https://formsubmit.co/ajax/shyammohan141298@gmail.com', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          successEl.style.display = 'block';
+          form.reset();
+        } else {
+          errorEl.style.display = 'block';
+        }
+      })
+      .catch(() => {
+        errorEl.style.display = 'block';
+      })
+      .finally(() => {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        setTimeout(() => { successEl.style.display = 'none'; }, 5000);
+      });
+    });
+
+    // --- Preloader ---
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('premiumLoader').classList.add('hidden');
+      }, 600);
+    });
+
+    // --- Smooth scroll for nav links ---
+    document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 </body>
-
 </html>

@@ -510,12 +510,7 @@ body {
   z-index: 9999;
 }
 
-/* Hide default cursor on desktop */
-@media (min-width: 992px) {
-  body, a, button, .btn, .services-1, .resume-wrap, .ftco-footer-social li a {
-    cursor: none !important;
-  }
-}
+
 
 /* Hide Carousel Dots & Background Blobs */
 .owl-dots, .blob {
