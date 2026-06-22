@@ -422,6 +422,11 @@ a:hover { color: var(--primary); }
   flex-wrap: wrap;
 }
 
+.hero-cta .btn-premium {
+  padding: 10px 24px;
+  font-size: 0.78rem;
+}
+
 .btn-premium {
   display: inline-flex;
   align-items: center;
